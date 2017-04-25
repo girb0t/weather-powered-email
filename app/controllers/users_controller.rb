@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         city: City.find(params[:city_id])
       )
     rescue => e
-      user_message = "Oops, something when wrong."
+      user_message = "Oops, something went wrong."
 
       if e.message == "Validation failed: Email is invalid"
         user_message = "Please use a correctly formatted email!"
