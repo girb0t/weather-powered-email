@@ -1,9 +1,10 @@
+<% city_options = @cities.map{ |c| [c.name, c.id]}.unshift(['Where do you live?', 'EMPTY']) %>
+
 <div id="new-user-form">
   <div id="header">
     <p>Weather Powered Email</p>
   </div>
   <div id="form-body">
-
     <%= form_tag("/users", method: "post") do %>
       <div class="form-field">
         <div class="form-label">
@@ -15,9 +16,9 @@
         <div class="form-label">
           <%= label_tag(:city_id, "Location: ") %>
         </div>
-        <%= select_tag(:city_id, options_for_select(@cities.map{ |c| [c.name, c.id]})) %>
+        <%= select_tag(:city_id, options_for_select(city_options)) %>
       </div>
-      <div class="form-field">
+      <div class="form-submit">
         <%= submit_tag("Subscribe") %>
       </div>
     <% end %>

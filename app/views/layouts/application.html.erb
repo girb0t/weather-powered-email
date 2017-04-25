@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if flash[:danger] %>
+      <div class="flash-danger">
+        <p><%= flash[:danger] %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
