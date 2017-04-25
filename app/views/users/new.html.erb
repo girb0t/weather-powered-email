@@ -1,1 +1,25 @@
-<h1>Hello World</h1>
+<div id="new-user-form">
+  <div id="header">
+    <p>Weather Powered Email</p>
+  </div>
+  <div id="form-body">
+
+    <%= form_tag("/users", method: "post") do %>
+      <div class="form-field">
+        <div class="form-label">
+          <%= label_tag(:email, "Email: ") %>
+        </div>
+        <%= text_field_tag(:email) %>
+      </div>
+      <div class="form-field">
+        <div class="form-label">
+          <%= label_tag(:city_id, "Location: ") %>
+        </div>
+        <%= select_tag(:city_id, options_for_select(@cities.map{ |c| [c.name, c.id]})) %>
+      </div>
+      <div class="form-field">
+        <%= submit_tag("Subscribe") %>
+      </div>
+    <% end %>
+  </div>
+</div>
