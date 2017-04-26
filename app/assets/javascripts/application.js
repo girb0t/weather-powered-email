@@ -19,9 +19,18 @@
 $(function() {
   $('#new-user-form').submit(function(event) {
     event.preventDefault();
+    handleFormSubmit();
+  })
+
+  $('#email-input').blur(function(event) {
+    validateEmail(event.target.value);
+  })
+
+  function handleFormSubmit() {
     var emailVal = $('#email-input').val();
     var cityVal= $('#city-select').val();
     if (validateEmail(emailVal) && validateCity(cityVal)) {
+      disableSubmitBtn(); // prevent double-clicking
       data = {
         email: emailVal,
         city_id: cityVal
@@ -36,19 +45,16 @@ $(function() {
         dataType: 'json'
       });
     }
-  })
-
-  $('#email-input').blur(function(event) {
-    validateEmail(event.target.value);
-  })
+  }
 
   function onSubmitSuccess(response) {
-    alert('success!');
+    alert(response.message)
     resetForm();
   }
 
   function onSubmitError(response) {
-    alert('ERROR')
+    alert(response.responseJSON.message)
+    enableSubmitBtn()
   }
 
   function validateEmail(email) {
@@ -91,6 +97,7 @@ $(function() {
   function resetForm() {
     clearFormInput();
     clearAllFormControlMsg();
+    enableSubmitBtn();
   }
 
   function clearFormInput() {
@@ -110,5 +117,13 @@ $(function() {
 
   function clearLocationFormControlMsg() {
     $('.form-group.location .form-control-msg.error').hide();
+  }
+
+  function disableSubmitBtn() {
+    $('#new-user-form button').prop('disabled', true);
+  }
+
+  function enableSubmitBtn() {
+    $('#new-user-form button').prop('disabled', false);
   }
 });
