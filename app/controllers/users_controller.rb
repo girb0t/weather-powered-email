@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         user_message = "Email formatted incorrectly."
         status = 400
       elsif e.class == ActiveRecord::RecordNotUnique && e.message.include?("users_email_key")
-        user_message = "'#{params[:email]}' already in use!"
+        user_message = "'#{params[:email]}' already subscribed!"
         status = 400
       end
 

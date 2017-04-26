@@ -17,18 +17,18 @@
 //= require_tree .
 
 $(function() {
-  $('#new-user-form').submit(function(event) {
+  $('#new-user-form').submit((event) => {
     event.preventDefault();
     handleFormSubmit();
-  })
+  });
 
-  $('#email-input').blur(function(event) {
+  $('#email-input').blur((event) => {
     validateEmail(event.target.value);
-  })
+  });
 
   function handleFormSubmit() {
-    var emailVal = $('#email-input').val();
-    var cityVal= $('#city-select').val();
+    const emailVal = $('#email-input').val();
+    const cityVal= $('#city-select').val();
     if (validateEmail(emailVal) && validateCity(cityVal)) {
       disableSubmitBtn(); // prevent double-clicking
       data = {
@@ -39,7 +39,7 @@ $(function() {
       $.ajax({
         type: "POST",
         url: '/users',
-        data: data,
+        data,
         success: onSubmitSuccess,
         error: onSubmitError,
         dataType: 'json'
@@ -53,14 +53,14 @@ $(function() {
   }
 
   function onSubmitError(response) {
-    showAlert('danger', response.responseJSON.message)
-    enableSubmitBtn()
+    showAlert('danger', response.responseJSON.message);
+    enableSubmitBtn();
   }
 
   function validateEmail(email) {
     var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (regex.test(email)) {
-      showValidEmailMsg()
+      showValidEmailMsg();
       return true;
     } else {
       showInvalidEmailMsg();
@@ -70,27 +70,26 @@ $(function() {
 
   function validateCity(value) {
     if (value === 'EMPTY') {
-      showInvalidLocationMsg()
+      showInvalidLocationMsg();
       return false;
-    } else {
-      return true;
     }
+    return true;
   }
 
   function showInvalidEmailMsg() {
     clearEmailFormControlMsg();
-    var $errorMsg = $('.form-group.email .form-control-msg.error');
+    let $errorMsg = $('.form-group.email .form-control-msg.error');
     $errorMsg.show().text('Invalid format.');
   }
 
   function showValidEmailMsg() {
     clearEmailFormControlMsg();
-    var $success_msg = $('.form-group.email .form-control-msg.success');
+    let $success_msg = $('.form-group.email .form-control-msg.success');
     $success_msg.show().text('Good email.');
   }
 
   function showInvalidLocationMsg() {
-    $errorMsg = $('.form-group.location .form-control-msg.error');
+    let $errorMsg = $('.form-group.location .form-control-msg.error');
     $errorMsg.show().text('Please choose a location.');
   }
 
@@ -130,7 +129,7 @@ $(function() {
   function showAlert(type, message) {
     type = type || 'info' // possible types are 'info', 'success', 'warning', and 'danger'
 
-    var html =  `<div class="alert alert-${type} alert-dismissable fade in">`
+    let html =  `<div class="alert alert-${type} alert-dismissable fade in">`
     html +=       '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'
     html +=       message
     html +=     '</div>'
