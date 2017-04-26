@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-image:url("owl_rain.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 750px;
+  background-color: black;
+}
+
+#new-user-page {
+  margin-top: 10em;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  opacity: 0.9;
+}
