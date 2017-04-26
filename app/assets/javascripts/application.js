@@ -48,12 +48,12 @@ $(function() {
   }
 
   function onSubmitSuccess(response) {
-    alert(response.message)
+    showAlert('success', response.message);
     resetForm();
   }
 
   function onSubmitError(response) {
-    alert(response.responseJSON.message)
+    showAlert('danger', response.responseJSON.message)
     enableSubmitBtn()
   }
 
@@ -125,5 +125,16 @@ $(function() {
 
   function enableSubmitBtn() {
     $('#new-user-form button').prop('disabled', false);
+  }
+
+  function showAlert(type, message) {
+    type = type || 'info' // possible types are 'info', 'success', 'warning', and 'danger'
+
+    var html =  `<div class="alert alert-${type} alert-dismissable fade in">`
+    html +=       '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'
+    html +=       message
+    html +=     '</div>'
+
+    $('#alert-container').html(html);
   }
 });
