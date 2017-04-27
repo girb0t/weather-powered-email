@@ -22,7 +22,7 @@ class WundergroundApiClient
   # :good - (Clear && not below-avg temp) || (No Precipitation && above-avg temp)
   # :bad  - (Pricipitation || below-avg temp)
   # :average - all other cases
-  def self.weather_feel(current_temp, avg_temp, condition)
+  def self.weather_feel(condition, current_temp, avg_temp)
     relative_temp = relative_temp(current_temp, avg_temp)
 
     if ((condition == 'Clear') && relative_temp != :below_avg) || (!precipitating?(condition) && relative_temp == :above_avg)
@@ -42,7 +42,8 @@ class WundergroundApiClient
     }
   end
 
-  def self.average_temperature(city, state)
+  # Get average temperature of given location this time of year
+  def self.avg_temp(city, state)
     raw_json = almanac_raw(city, state)
     normal_high = raw_json['almanac']['temp_high']['normal']['F'].to_f
     normal_low = raw_json['almanac']['temp_low']['normal']['F'].to_f
