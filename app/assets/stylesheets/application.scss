@@ -20,16 +20,33 @@ body {
   background-repeat: no-repeat;
   min-height: 750px;
   background-color: black;
+  min-width: 270px
 }
 
 #new-user-page {
   margin-top: 10em;
   background-color: white;
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
   border-radius: 10px;
-  opacity: 0.9;
+  opacity: 0.93;
+  margin-left: 50px;
+  margin-right: 50px;
+  .header {
+    border-bottom: 1px solid grey;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    color: grey;
+
+    h1 {
+      font-weight: lighter;
+    }
+  }
 
   #new-user-form {
+    button {
+      margin-top: 30px;
+    }
+
     .form-control-msg {
       padding-left: 5px;
       &.error {
