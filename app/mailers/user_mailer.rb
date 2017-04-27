@@ -4,6 +4,8 @@ class UserMailer < ApplicationMailer
     @email = email
     @city = city
     @state = state
+    @weather = WundergroundApiClient.conditions(@city, @state)
+
     mail(to: @email, subject: subject_line)
   end
 
@@ -11,9 +13,8 @@ class UserMailer < ApplicationMailer
   private
 
   def subject_line
-    conditions = WundergroundApiClient.conditions(@city, @state)
     avg_temp = WundergroundApiClient.avg_temp(@city, @state)
-    weather_feel = WundergroundApiClient.weather_feel(conditions[:weather], conditions[:temperature], avg_temp)
+    weather_feel = WundergroundApiClient.weather_feel(@weather[:weather], @weather[:temperature], avg_temp)
 
     case weather_feel
     when :good

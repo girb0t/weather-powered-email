@@ -1,16 +1,17 @@
+<% @weather[:weather] = 'Sunny' if @weather[:weather] == 'Clear' %>
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @email %></h1>
+    <h2>Hello from Weather-Powered Email, <%= @email %>!</h2>
     <p>
-      You have successfully signed up to example.com<br>
+      <h4>Current conditions in <%= @city %>, <%= @state %>:</h4>
+      <span><%= @weather[:temperature] %>F<br>
+      <%= @weather[:weather] %></span><br>
     </p>
-    <p>
-      To login to the site, just follow this link:
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Have a great day!</p>
   </body>
 </html>
