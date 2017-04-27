@@ -13,8 +13,8 @@ namespace :db do
 
     csv.each do |row|
       City.create({
-        name:row[0],
-        state: row[1]
+        name:row[0].strip,
+        state: row[1].strip
       })
       puts "Populated...#{row[0]}"
     end
