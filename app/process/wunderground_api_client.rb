@@ -6,12 +6,17 @@ class WundergroundApiClient
 
   def self.conditions(city, state)
     raw_json = conditions_raw(city, state)
-    ap raw_json
+    {
+      weather: raw_json['current_observation']['weather'],
+      temperature: raw_json['current_observation']['temp_f']
+    }
   end
 
-  def self.almanac(city, state)
+  def self.average_temperature(city, state)
     raw_json = almanac_raw(city, state)
-    ap raw_json
+    normal_high = raw_json['almanac']['temp_high']['normal']['F'].to_f
+    normal_low = raw_json['almanac']['temp_low']['normal']['F'].to_f
+    (normal_high + normal_low) / 2
   end
 
   def self.conditions_raw(city, state)
@@ -29,7 +34,7 @@ class WundergroundApiClient
       RestClient.get(url)
     end
 
-    return JSON.parse(response)
+    JSON.parse(response)
   end
 
   def self.try_cache(url)
