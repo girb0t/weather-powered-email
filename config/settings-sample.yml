@@ -5,3 +5,7 @@ development:
   gmail_address: 'EMAIL@gmail.com' # only gmail is supported at the moment
   gmail_password: 'PASSWORD'
 
+test:
+  wunderground_api_key: 'API_KEY'
+  gmail_address: 'EMAIL@gmail.com'
+  gmail_password: 'PASSWORD'

@@ -5,8 +5,7 @@ This app allows users to subscribe to a mailing list with their email and locati
 
 - client-side and server-side validation for user inputs
 - comprehensive error handling
-- an in-house client for interfacing with the Wunderground API complete with caching
-- unit tests for quality assurance
+- an in-house client for interfacing with the Wunderground API complete with caching and test specs.
 
 # Setup
 This project uses ruby-2.1.5
@@ -23,7 +22,7 @@ This project uses ruby-2.1.5
 
 3. Start server: `> rails s` then visit 'localhost:3000'.
 
-4. Run tests: `> rspec`
+4. Run tests: `> bundle exec rspec`
 
 
 # Sending out emails
