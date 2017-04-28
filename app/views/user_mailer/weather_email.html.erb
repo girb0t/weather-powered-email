@@ -1,5 +1,3 @@
-<% @weather[:weather] = 'Sunny' if @weather[:weather] == 'Clear' %>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,11 +5,15 @@
   </head>
   <body>
     <h2>Hello from Weather-Powered Email, <%= @email %>!</h2>
-    <p>
-      <h4>Current conditions in <%= @city %>, <%= @state %>:</h4>
-      <span><%= @weather[:temperature] %>F<br>
-      <%= @weather[:weather] %></span><br>
-    </p>
+    <div style="border: solid, 1px, black">
+      <img style="float:left;padding-right: 10px" src="<%= @weather[:icon] %>">
+      <p>
+        <strong><%= @city %>, <%= @state %></strong>
+        <p>
+          <%= @weather[:temperature] %> degrees, <%= @weather[:weather] %>
+        </p>
+      </p><br>
+    </div>
     <p>Have a great day!</p>
   </body>
 </html>

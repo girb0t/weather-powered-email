@@ -39,7 +39,9 @@ class WundergroundApiClient
     raw_json = conditions_raw(city, state)
     {
       weather: raw_json['current_observation']['weather'],
-      temperature: raw_json['current_observation']['temp_f']
+      temperature: raw_json['current_observation']['temp_f'],
+      icon: raw_json['current_observation']['icon_url'],
+      time: raw_json['current_observation']['observation_time_rfc822']
     }
   end
 
