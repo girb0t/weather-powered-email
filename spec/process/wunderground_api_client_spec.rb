@@ -38,6 +38,8 @@ describe WundergroundApiClient do
       end
       let(:temp_from_fixture) { conditions_response['current_observation']['temp_f'] }
       let(:weather_from_fixture) {  conditions_response['current_observation']['weather'] }
+      let(:icon_url_from_fixture) {  conditions_response['current_observation']['icon_url'] }
+      let(:time_from_fixture) {  conditions_response['current_observation']['observation_time_rfc822'] }
 
       it "returns the correct weather" do
         expect(client.conditions('my_city', 'my_state')[:weather]).to eq(weather_from_fixture)
@@ -45,6 +47,14 @@ describe WundergroundApiClient do
 
       it "returns the correct temperature" do
         expect(client.conditions('my_city', 'my_state')[:temperature]).to eq(temp_from_fixture)
+      end
+
+      it "returns the correct icon url" do
+        expect(client.conditions('my_city', 'my_state')[:icon]).to eq(icon_url_from_fixture)
+      end
+
+      it "returns the correct time" do
+        expect(client.conditions('my_city', 'my_state')[:time]).to eq(time_from_fixture)
       end
     end
 
