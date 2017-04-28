@@ -1,0 +1,7 @@
+# Create a 'settings.yml' file in this directory with the following settings filled in.
+
+development:
+  wunderground_api_key: 'API_KEY'
+  gmail_address: 'EMAIL@gmail.com'
+  gmail_password: 'PASSWORD'
+

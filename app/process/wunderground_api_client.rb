@@ -1,6 +1,7 @@
 require 'rest-client'
 class WundergroundApiClient
-  API_KEY= '199d199e57a50a1e'
+  settings = YAML.load_file("#{Rails.root}/config/settings.yml")[Rails.env]
+  API_KEY= settings['wunderground_api_key']
   BASE_URL = 'https://api.wunderground.com/api/' + API_KEY
 
   # Current conditions from WU that have precipitation will contain the following words.
