@@ -9,11 +9,12 @@ This app allows users to subscribe to a mailing list with their email and locati
 
 
 # Setup
-This project uses ruby-2.1.5
+This project uses ruby-2.4.0
 
-1. Setup database and populate the `cities` table with top 100 cities by population:
+1. Bundle, create databases, and populate the `cities` table with top 100 cities by population:
 
   ```
+  > bundle install
   > rake db:create
   > rake db:migrate
   > rake db:import_cities_from_csv
