@@ -5,7 +5,8 @@ This app allows users to subscribe to a mailing list with their email and locati
 
 - client-side and server-side validation for user inputs
 - comprehensive error handling
-- an in-house client for interfacing with the Wunderground API complete with caching and test specs.
+- an in-house client for interfacing with the Wunderground API complete with caching to minimize the number of calls we have to make and test specs.
+
 
 # Setup
 This project uses ruby-2.1.5
