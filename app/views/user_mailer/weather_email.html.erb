@@ -7,12 +7,12 @@
     <h2>Hello from Weather-Powered Email, <%= @email %>!</h2>
     <div style="border: solid, 1px, black">
       <img style="float:left;padding-right: 10px" src="<%= @weather[:icon] %>">
-      <p>
+      <div>
         <strong><%= @city %>, <%= @state %></strong>
         <p>
           <%= @weather[:temperature] %> degrees, <%= @weather[:weather] %>
         </p>
-      </p><br>
+      </div><br>
     </div>
     <p>Have a great day!</p>
   </body>
