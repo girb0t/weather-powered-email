@@ -39,9 +39,9 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'capybara'
   gem 'pry'
   gem 'rb-readline'
+  gem 'faker'
 end
 
 group :test do
