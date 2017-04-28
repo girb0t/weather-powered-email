@@ -15,11 +15,14 @@ namespace :mailer do
       begin
         UserMailer.weather_email(user['email'], user['city'], user['state']).deliver_now
         success_count += 1
+        print '.'
       rescue => e
         fail_count += 1
         Rails.logger.error("Emails failed to send for #{user['email']}. Error:")
         Rails.logger.error(e)
+        print 'X'
       end
+      sleep(30) # So we don't hit the WU API cap of 5 calls per minute.
     end
 
     puts "#{success_count} emails successfully sent."
