@@ -6,7 +6,7 @@ class WundergroundApiClient
 
   # Current conditions from WU that have precipitation will contain the following words.
   # Note that volcanic ash, sand/dust storms do not qualify as 'precipitation' according to
-  # the meteorological definition of the word.
+  # the meteorological definition of the word :)
   # Source: https://www.wunderground.com/weather/api/d/docs?d=resources/phrase-glossary&MR=1
   PRECIPITATION_GLOSSARY = [
     'Drizzle',
