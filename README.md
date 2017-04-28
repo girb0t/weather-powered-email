@@ -1,4 +1,6 @@
 # About
+Author: **Pei Xiong Liu**
+
 This app allows users to subscribe to a mailing list with their email and location. A script can then be run to send out customized emails based on the current weather at the location.
 
 ## Features
