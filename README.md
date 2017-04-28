@@ -28,7 +28,7 @@ This project uses ruby-2.4.0
 
 
 # Sending out emails
-Run the following rake task to send out emails to every subscribed user. The subject line and content will be different depending on weather conditions at the user's location. Note that there is a delay between sending emails to abide by Wunderground's 5-calls-per-minute limit.
+Run the following rake task to send out emails to every subscribed user. The subject line and content will be different depending on weather conditions at the user's location. Note that there is a deliberate delay between sending emails to keep from going over Wunderground's 5-calls-per-minute limit.
 
 ```
 > rake mailer:send_weather_emails
