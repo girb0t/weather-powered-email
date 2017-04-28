@@ -5,13 +5,13 @@ This app allows users to subscribe to a mailing list with their email and locati
 
 - client-side and server-side validation for user inputs
 - comprehensive error handling
-- an in-house client for interfacing with the Wunderground API complete with caching to minimize the number of calls we have to make and test specs.
+- an in-house client for interfacing with the Wunderground API complete with caching to minimize the number of calls we have to make as well as test specs.
 
 
 # Setup
 This project uses ruby-2.4.0
 
-1. Bundle, create databases, and populate the `cities` table with top 100 cities by population:
+1. Bundle, create databases, and populate the `cities` table with the top 100 cities by population:
 
   ```
   > bundle install
@@ -20,7 +20,7 @@ This project uses ruby-2.4.0
   > rake db:import_cities_from_csv
   ```
 
-2. Create a file `config/settings.yml` and input your settings. See `config.settings-sample.yml` for an example.
+2. Create/edit `config/settings.yml` and input your settings. See `config.settings-sample.yml` for reference.
 
 3. Start server: `> rails s` then visit 'localhost:3000'.
 
@@ -28,7 +28,7 @@ This project uses ruby-2.4.0
 
 
 # Sending out emails
-Run the following rake task to send out emails to every subscribed user. The subject line and content will be different depending on weather conditions at the user's location. Note that there is a deliberate delay between sending emails to keep from going over Wunderground's 5-calls-per-minute limit.
+Run the following rake task to send out an email to each subscribed user. The subject line and content will differ depending on weather conditions at the user's location. Note that there is a deliberate delay between sending emails to keep from going over Wunderground's 5-calls-per-minute limit.
 
 ```
 > rake mailer:send_weather_emails
