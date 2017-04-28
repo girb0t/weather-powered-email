@@ -17,6 +17,10 @@
 //= require_tree .
 
 $(function() {
+  ////////////////////////////
+  // Initialize Event Handlers
+  ////////////////////////////
+
   $('#new-user-form').submit((event) => {
     event.preventDefault();
     handleFormSubmit();
@@ -25,6 +29,9 @@ $(function() {
   $('#email-input').blur((event) => {
     validateEmail(event.target.value);
   });
+
+  //```````````````````````````
+
 
   function handleFormSubmit() {
     const emailVal = $('#email-input').val();
@@ -110,12 +117,11 @@ $(function() {
   }
 
   function clearEmailFormControlMsg() {
-    $('.form-group.email .form-control-msg.error').hide();
-    $('.form-group.email .form-control-msg.success').hide();
+    $('.form-group.email .form-control-msg').hide();
   }
 
   function clearLocationFormControlMsg() {
-    $('.form-group.location .form-control-msg.error').hide();
+    $('.form-group.location .form-control-msg').hide();
   }
 
   function disableSubmitBtn() {
