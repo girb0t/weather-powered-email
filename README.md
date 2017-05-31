@@ -1,7 +1,7 @@
 # About
 Author: **Pei Xiong Liu**
 
-This app allows users to subscribe to a mailing list with their email and location. A script can then be run to send out customized emails based on the current weather at the location.
+This app allows users to subscribe to a mailing list with their email and location. A script can then be run to send out customized emails based on the current weather at the location (using the [Wunderground API](https://www.wunderground.com/weather/api/)).
 
 ## Features
 
@@ -9,6 +9,12 @@ This app allows users to subscribe to a mailing list with their email and locati
 - comprehensive error handling
 - an in-house client for interfacing with the Wunderground API complete with caching to minimize the number of calls we have to make as well as test specs.
 
+### Screenshots
+
+<img src="public/screenshot_form.png" height="500">
+<kbd>
+  <img src="public/screenshot_email.png" height="300">
+</kbd>
 
 # Setup
 This project uses ruby-2.4.0
@@ -22,7 +28,7 @@ This project uses ruby-2.4.0
   > rake db:import_cities_from_csv
   ```
 
-2. Create/edit `config/settings.yml` and input your settings. See `config.settings-sample.yml` for reference.
+2. Create/edit `config/settings.yml` and input your settings (Wunderground API key and credentials of gmail account emails will be sent from). See `config.settings-sample.yml` for reference.
 
 3. Start server: `> rails s` then visit 'localhost:3000'.
 
