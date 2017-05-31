@@ -25,6 +25,7 @@ namespace :mailer do
       sleep(30) # So we don't hit the WU API cap of 5 calls per minute.
     end
 
+    puts
     puts "#{success_count} emails successfully sent."
     puts "#{fail_count} emails failed to send. Check logs for details." if fail_count > 0
   end
