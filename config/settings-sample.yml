@@ -1,5 +1,7 @@
 # Create a 'settings.yml' file in this directory with the following settings filled in.
 
+# IMPORTANT: You must turn on Gmail's "Allow less secure apps": https://myaccount.google.com/lesssecureapps
+
 development:
   wunderground_api_key: 'API_KEY' # get a free key here: https://www.wunderground.com/weather/api/
   gmail_address: 'EMAIL@gmail.com' # only gmail is supported at the moment
